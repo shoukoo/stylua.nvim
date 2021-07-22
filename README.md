@@ -17,7 +17,7 @@ use({"shoukoo/stylua.nvim"})
 Format your file on save: 
 ```lua
 require('stylua').setup({
-on_save = true,
+  on_save = true,
 })
 ```
 
