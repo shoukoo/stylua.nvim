@@ -1,6 +1,6 @@
 # stylua.nvim
 
-This repository is heavily inspired by [ckipp01's repo](github.com/ckipp01/stylua-nvim.git )
+This repository is heavily inspired by [ckipp01's repo](https://github.com/ckipp01/stylua-nvim.git)
 
 stylua.nvim is a minimal wrapper around the Lua code formatter,
 [StyLua](https://github.com/JohnnyMorganz/StyLua). It does pretty much what
