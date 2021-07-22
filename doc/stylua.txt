@@ -6,15 +6,15 @@ spend time discussing how you should format.
 
                             STYLUA-NVIM REFERENCE MANUAL
 
-CONTENTS                                                           *stylua-nvim*
+CONTENTS                                                           *stylua*
 
-    1. Prerequisites......... |stylua-nvim-prerequisites|
-    2. Getting Started....... |stylua-nvim-getting-started|
-    3. Lua API............... |stylua-nvim-lua-api|
-    4. Example Usage......... |stylua-nvim-example-usage|
+    1. Prerequisites......... |stylua-prerequisites|
+    2. Getting Started....... |stylua-getting-started|
+    3. Lua API............... |stylua-lua-api|
+    4. Example Usage......... |stylua-example-usage|
 
 ================================================================================
-PREREQUISITES                                        *stylua-nvim-prerequisites*
+PREREQUISITES                                        *stylua-prerequisites*
 
 - Nvim v0.5.x
 - Make sure to have StyLua instaled. You can find instructions here:
@@ -51,7 +51,7 @@ Format your file before save: >
 
 Via a mapping: >
   local opts = { noremap=true, silent=true }
-  buf_set_keymap("n", "<leader>f", "<cmd>lua require("stylua-nvim")format_file()<CR>', opts)
+  buf_set_keymap("n", "<leader>f", "<cmd>lua require("stylua")format_file()<CR>', opts)
 <
 
 Usage via nvim-lspconfig and sumneko_lua to be able to use `:Format`: >
@@ -61,7 +61,7 @@ Usage via nvim-lspconfig and sumneko_lua to be able to use `:Format`: >
     commands = {
       Format = {
         function()
-          require("stylua-nvim").format_file()
+          require("stylua").format_file()
         end,
       },
     },
