@@ -27,7 +27,39 @@ local opts = { noremap=true, silent=true }
 buf_set_keymap("n", "<leader>f", "<cmd>lua require("stylua")format_file()<CR>', opts)
 ```
 
-Usage via nvim-lspconfig and sumneko_lua to be able to use `:Format`: 
+Usage via nvim-lspconfig with sumneko_lua:
+```lua
+
+local on_attach = function(lsp)
+  return function(_, bufnr)
+    local function buf_set_keymap(...)
+      vim.api.nvim_buf_set_keymap(bufnr, ...)
+    end
+
+    -- Mappings.
+    local opts = { noremap = true, silent = true }
+
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    if lsp == 'sumneko_lua' then
+      buf_set_keymap('n', 'gf', [[<Cmd>lua require"stylua".format_file()<CR>]], opts)
+    else
+      buf_set_keymap('n', 'gf', '<Cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    end
+    ...
+  end
+end
+
+...
+
+nvim_lsp.sumneko_lua.setup({
+  cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
+  on_attach = on_attach('sumneko_lua'),
+  capabilities = capabilities,
+...
+
+```
+
+or you can also create a seperate command to format your code, The code below uses `:Format` cmd to format code: 
 ```lua
   local lsp_config = require("lspconfig")
   lsp_config.sumneko_lua.setup({
