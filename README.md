@@ -6,7 +6,7 @@ stylua.nvim is a minimal wrapper around the Lua code formatter,
 [StyLua](https://github.com/JohnnyMorganz/StyLua). It does pretty much what
 you'd expect it to do, format your Lua file using Stylua.
 
-## Getting started
+## Getting started 🏡
 
 ### Requirements
 - Neovim 0.5+
@@ -24,8 +24,8 @@ brew install stylua
 ```
 You can also download the binary [here](https://github.com/JohnnyMorganz/StyLua/releases)
 
-### Installation
-Use your faviourie package manager
+## Installation 💾
+Use your faviourie package manager to install stylua.nvim
 #### Packer
 
 ```lua
@@ -37,7 +37,7 @@ use 'shoukoo/stylua.nvim'
 Plug 'shoukoo/stylua.nvim'
 ```
 
-### Setup
+## Setup 🛠️
 #### Format your file on save: 
 ```lua
 require('stylua').setup({
