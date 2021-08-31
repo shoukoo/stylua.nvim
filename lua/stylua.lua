@@ -105,10 +105,7 @@ stylua.format_file = function()
   fn.delete(error_file)
 end
 
-stylua.startup = function(config)
-  if fn.empty(config) == 0 and config.on_save == true then
-    vim.cmd([[autocmd BufWrite *.lua lua require('stylua').format_file() ]])
-  end
+stylua.setup= function()
 	vim.cmd([[command! StyluaFormat lua require('stylua').format_file()]])
 	vim.cmd([[command! StyluaInfo lua require('stylua').info()]])
 end
