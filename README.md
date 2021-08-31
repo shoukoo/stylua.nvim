@@ -38,13 +38,6 @@ Plug 'shoukoo/stylua.nvim'
 ```
 
 ## Setup 🛠️
-#### Format your file on save: 
-```lua
-require('stylua').setup({
-  on_save = true,
-})
-```
-
 #### Assign a dedicated key to format the file: 
 ```lua
 local opts = { noremap=true, silent=true }
