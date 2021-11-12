@@ -6,28 +6,46 @@ stylua.nvim is a minimal wrapper around the Lua code formatter,
 [StyLua](https://github.com/JohnnyMorganz/StyLua). It does pretty much what
 you'd expect it to do, format your Lua file using Stylua.
 
-### Install
-Make sure you have StyLua installed and then install this plugin:
+## Getting started 🏡
 
-```lua
-use({"shoukoo/stylua.nvim"})
+### Requirements
+- Neovim 0.5+
+- StyLua
+
+### Install Stylua
+If you have Rust installed, you can install Stylua using cargo
+```
+cargo install stylua
 ```
 
-### Quick Start
-Format your file on save: 
+MacOS
+```
+brew install stylua
+```
+You can also download the binary [here](https://github.com/JohnnyMorganz/StyLua/releases)
+
+## Installation 💾
+Use your faviourie package manager to install stylua.nvim
+#### Packer
+
 ```lua
-require('stylua').setup({
-  on_save = true,
-})
+use 'shoukoo/stylua.nvim'
 ```
 
-Assign a dedicated key to format the file: 
+#### Vim-Plug
+```viml
+Plug 'shoukoo/stylua.nvim'
+```
+
+## Setup 🛠️
+#### Assign a dedicated key to format the file: 
 ```lua
 local opts = { noremap=true, silent=true }
 buf_set_keymap("n", "<leader>f", "<cmd>lua require("stylua")format_file()<CR>', opts)
 ```
 
-Usage via nvim-lspconfig with sumneko_lua:
+#### Usage via nvim-lspconfig with sumneko_lua:
+You can follow the standalone instruction to install [sumneko_lua](https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone))
 ```lua
 
 local on_attach = function(lsp)
@@ -59,7 +77,8 @@ nvim_lsp.sumneko_lua.setup({
 
 ```
 
-or you can also create a seperate command to format your code, The code below uses `:Format` cmd to format code: 
+##### Create a seperate command to format your code
+The code below uses `:Format` cmd to format code: 
 ```lua
   local lsp_config = require("lspconfig")
   lsp_config.sumneko_lua.setup({
